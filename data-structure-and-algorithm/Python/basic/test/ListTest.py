@@ -53,3 +53,22 @@ print("list range", t4.timeit(number=1000), "milliseconds")
 # 同样是执行1000次创建一个包含1-1000的列表，四种方式使用的时间差距很大！
 # 使用append比逐次增加要快很多，另外，使用python的列表产生式比append要快，
 # 而第四种方式更加快！
+
+"""
+test pop()
+pop最后一个元素效率远高于pop第一个元素
+"""
+x = list(range(2000000))
+pop_zero = Timer("x.pop(0)", "from __main__ import x")
+print("pop_zero", pop_zero.timeit(number=1000), "milliseconds")
+
+# y = list(range(4))
+# print(y)
+# y.pop(1)
+# print(y)
+
+x = list(range(2000000))
+pop_end = Timer("x.pop()", "from __main__ import x")
+print("pop_end", pop_end.timeit(number=1000), "milliseconds")
+# pop_zero 3.180556792900482 milliseconds
+# pop_end 9.278376333377025e-05 milliseconds
