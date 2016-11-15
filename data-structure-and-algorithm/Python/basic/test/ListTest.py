@@ -16,6 +16,8 @@ reverse             O(n)
 concatenate         O(k)
 sort                O(nlogn)
 multiply            O(nk)
+
+Python list类似C++ vector或java Array List
 """
 
 def test1():
@@ -72,3 +74,7 @@ pop_end = Timer("x.pop()", "from __main__ import x")
 print("pop_end", pop_end.timeit(number=1000), "milliseconds")
 # pop_zero 3.180556792900482 milliseconds
 # pop_end 9.278376333377025e-05 milliseconds
+
+"""
+list append(value)后插入效率远高于insert(0, value)前插入
+"""
